@@ -1,0 +1,62 @@
+1a 04 :
+mov r0, r4
+
+1c 01 04 :
+mov r1, 4
+
+1a 12 :
+mov r1, r2
+
+03 03 02 :
+add r3, r0, r2
+
+21 03 02 :
+mul r3, r0, r2
+
+90 04 :
+jmp 04
+
+91 00 00 b0 fb :
+jmp [0x000070fb]
+
+23 32 00 00 b0 fb :
+mul r3, r2, [0x000070fb]
+
+1B 02 00 00 b0 fb :
+mov r2, [0x000070fb]
+
+04 12 00 00 b0 fb :
+add r1, r2, [0x000070fb]
+
+91 00 00 90 fb :
+ERROR: failed to convert virtual address[0x000090fb]because byte of presence is 0
+jmp [0x000090fb]
+
+23 32 00 00 90 fb :
+ERROR: failed to convert virtual address[0x000090fb]because byte of presence is 0
+mul r3, r2, [0x000090fb]
+
+
+1B 02 00 00 90 fb :
+ERROR: failed to convert virtual address[0x000090fb]because byte of presence is 0
+mov r2, [0x000090fb]
+
+04 12 00 00 90 fb :
+ERROR: failed to convert virtual address[0x000090fb]because byte of presence is 0
+add r1, r2, [0x000090fb]
+
+91 00 03 f0 fb :
+ERROR: failed to convert virtual address[0x0003f0fb]because page 31 does not exist
+jmp [0x0003f0fb]
+
+23 32 00 03 f0 fb :
+ERROR: failed to convert virtual address[0x0003f0fb]because page 31 does not exist
+mul r3, r2, [0x0003f0fb]
+
+1B 02 00 03 f0 fb :
+ERROR: failed to convert virtual address[0x0003f0fb]because page 31 does not exist
+mov r2, [0x0003f0fb]
+
+04 12 00 03 f0 fb :
+ERROR: failed to convert virtual address[0x0003f0fb]because page 31 does not exist
+add r1, r2, [0x0003f0fb]

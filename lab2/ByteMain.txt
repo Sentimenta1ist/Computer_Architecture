@@ -1,0 +1,234 @@
+Compiled from "Main.java"
+public class Main {
+  public Main();
+    Code:
+       0: aload_0
+       1: invokespecial #1                  // Method java/lang/Object."<init>":()V
+       4: return
+
+  public static void main(java.lang.String[]);
+    Code:
+       0: iconst_3
+       1: anewarray     #2                  // class "[I"
+       4: dup
+       5: iconst_0
+       6: iconst_5
+       7: newarray       int
+       9: dup
+      10: iconst_0
+      11: iconst_0
+      12: iastore
+      13: dup
+      14: iconst_1
+      15: iconst_1
+      16: iastore
+      17: dup
+      18: iconst_2
+      19: iconst_2
+      20: iastore
+      21: dup
+      22: iconst_3
+      23: iconst_3
+      24: iastore
+      25: dup
+      26: iconst_4
+      27: bipush        -2
+      29: iastore
+      30: aastore
+      31: dup
+      32: iconst_1
+      33: iconst_5
+      34: newarray       int
+      36: dup
+      37: iconst_0
+      38: iconst_0
+      39: iastore
+      40: dup
+      41: iconst_1
+      42: iconst_0
+      43: iastore
+      44: dup
+      45: iconst_2
+      46: bipush        -2
+      48: iastore
+      49: dup
+      50: iconst_3
+      51: iconst_4
+      52: iastore
+      53: dup
+      54: iconst_4
+      55: bipush        -6
+      57: iastore
+      58: aastore
+      59: dup
+      60: iconst_2
+      61: iconst_5
+      62: newarray       int
+      64: dup
+      65: iconst_0
+      66: iconst_0
+      67: iastore
+      68: dup
+      69: iconst_1
+      70: iconst_3
+      71: iastore
+      72: dup
+      73: iconst_2
+      74: iconst_1
+      75: iastore
+      76: dup
+      77: iconst_3
+      78: iconst_0
+      79: iastore
+      80: dup
+      81: iconst_4
+      82: bipush        10
+      84: iastore
+      85: aastore
+      86: astore_1
+      87: getstatic     #3                  // Field java/lang/System.out:Ljava/io/PrintStream;
+      90: ldc           #4                  // String Some matrix:
+      92: invokevirtual #5                  // Method java/io/PrintStream.println:(Ljava/lang/String;)V
+      95: aload_1
+      96: iconst_3
+      97: iconst_4
+      98: invokestatic  #6                  // Method print_mat:([[III)V
+     101: aload_1
+     102: iconst_3
+     103: iconst_4
+     104: invokestatic  #7                  // Method sort_mat:([[III)V
+     107: getstatic     #3                  // Field java/lang/System.out:Ljava/io/PrintStream;
+     110: ldc           #8                  // String Sorted matrix:
+     112: invokevirtual #5                  // Method java/io/PrintStream.println:(Ljava/lang/String;)V
+     115: aload_1
+     116: iconst_3
+     117: iconst_4
+     118: invokestatic  #6                  // Method print_mat:([[III)V
+     121: return
+
+  private static void print_mat(int[][], int, int);
+    Code:
+       0: iconst_0
+       1: istore_3
+       2: iload_3
+       3: iload_1
+       4: if_icmpge     68
+       7: iconst_1
+       8: istore        4
+      10: iload         4
+      12: iload_2
+      13: iconst_1
+      14: iadd
+      15: if_icmpge     49
+      18: getstatic     #3                  // Field java/lang/System.out:Ljava/io/PrintStream;
+      21: ldc           #9                  // String %3d
+      23: iconst_1
+      24: anewarray     #10                 // class java/lang/Object
+      27: dup
+      28: iconst_0
+      29: aload_0
+      30: iload_3
+      31: aaload
+      32: iload         4
+      34: iaload
+      35: invokestatic  #11                 // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+      38: aastore
+      39: invokevirtual #12                 // Method java/io/PrintStream.printf:(Ljava/lang/String;[Ljava/lang/Object;)Ljava/io/PrintStream;
+      42: pop
+      43: iinc          4, 1
+      46: goto          10
+      49: getstatic     #3                  // Field java/lang/System.out:Ljava/io/PrintStream;
+      52: ldc           #13                 // String \n
+      54: iconst_0
+      55: anewarray     #10                 // class java/lang/Object
+      58: invokevirtual #12                 // Method java/io/PrintStream.printf:(Ljava/lang/String;[Ljava/lang/Object;)Ljava/io/PrintStream;
+      61: pop
+      62: iinc          3, 1
+      65: goto          2
+      68: return
+
+ private static void sort_mat(int[][], int, int);
+    Code:
+//method body start
+//main loop start
+       0: iconst_0               // load constant 0 to stack
+       1: istore        4        // int k = 0;
+       3: iload         4        // load int value of local variable k to stack 
+       5: iload_1                // load int value of formal variable size to stack
+       6: if_icmpge     97       // check main loop condition k < m
+    				 // and jump to label 97 if fails
+//main loop body start
+//second loop start
+       9: iconst_2               // load constant 2 to stack 
+      10: istore        5        // int i = 2;
+      12: iload         5        // load int value of local variable I to stack
+      14: iload_2    	         // load int value of formal variable size to stack	
+      15: iconst_1               // load constant 1 to stack
+      16: iadd                   // perform operation add of last to ints in stack 
+                                 // n + 1
+      17: if_icmpge     91       // check second loop condition i < n + 1
+//second loop body start
+      20: aload_0                // load value of formal arr to stack 
+      21: iload         4        // load int value of local variable k to stack
+      23: aaload                 // a[k]
+      24: iconst_0               // load constant 0 to stack 
+      25: aload_0                // a[k][0]
+      26: iload         4        // load int value of local variable k to stack
+      28: aaload                 // a[k]
+      29: iload         5       // load int value of local variable i to stack
+      31: iaload                // a[k][i]
+      32: iastore               // load a[k][0] = a[k][i] to stack
+      33: iload         5       //  load int value of local variable i to stack
+      35: istore_3              //  l = i;
+//while loop start
+      36: aload_0               // load value of formal arr to stack
+      37: iload         4       // load int value of local variable k to stack
+      39: aaload               // a[k]
+      40: iconst_0             // load constant 0 to stack
+      41: iaload               // a[k][0]
+      42: aload_0              // load value of formal arr to stack
+      43: iload         4      // load int value of local variable k to stack
+      45: aaload               // a[k]
+      46: iload_3              // load int value of local variable l to stack
+      47: iconst_1             // load constant 1 to stack
+      48: isub                 // l - 1
+      49: iaload               // load a[k][l-1] to stack 
+      50: if_icmpge     73     // condition of while loop if false jump 73
+//while loop body start
+      53: aload_0              // load value of formal arr to stack
+      54: iload         4      // load int value of local variable k to stack
+      56: aaload               // a[k]
+      57: iload_3              // load int value of local variable l to stack
+      58: aload_0              // a[k][l]
+      59: iload         4      // load int value of local variable k to stack 
+      61: aaload               // a[k]
+      62: iload_3              // load int value of local variable l to stack
+      63: iconst_1             // load constant 1 to stack
+      64: isub                 // l - 1
+      65: iaload               // load a[k][l - 1] to stack
+      66: iastore              // load a[k][l] = a[k][l - 1]to stack
+      67: iinc          3, -1  // l--;
+//while loop body end
+      70: goto          36     // to while body start
+//while loop end
+      73: aload_0              // load value of formal arr to stack
+      74: iload         4      // load int value of local variable k to stack
+      76: aaload               // a[k]
+      77: iload_3              // load int value of local variable l to stack
+      78: aload_0              // load a[k][l] to stack
+      79: iload         4      // load int value of local variable k to stack
+      81: aaload               // a[k]
+      82: iconst_0             // load constant 0 to stack
+      83: iaload               // load a[k][0] to stack 
+      84: iastore              // load a[k][l] = a[k][0] to stack
+//second loop body end
+      85: iinc          5, 1   // i++;
+      88: goto          12     // go to second loop start
+//second loop end
+//main loop body end
+      91: iinc          4, 1   // k++; 
+      94: goto          3      // go to main loop start
+//main loop end
+      97: return               // end function 
+
+}
